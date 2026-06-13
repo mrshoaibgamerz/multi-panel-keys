@@ -3,6 +3,21 @@
 <head>
 <title>INFINITE STORE</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+padding:20px;
+}
+
+button{
+padding:10px 20px;
+margin:5px;
+cursor:pointer;
+}
+</style>
 </head>
 
 <body>
@@ -11,8 +26,33 @@
 
 <p>Digital Key Store</p>
 
-<button>Products</button>
-<button>Support</button>
+<button onclick="showProducts()">Products</button>
+<button onclick="showSupport()">Support</button>
+
+<div id="content"></div>
+
+<script>
+const supabaseUrl = "https://aytgkjahrqprtcedcavl.supabase.co";
+
+const supabaseKey = "sb_publishable_jcBP1v7sUcCGIWJgQ433qA__R1otIa0";
+
+const supabase = window.supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+function showProducts(){
+document.getElementById("content").innerHTML =
+"<h2>Products Page</h2>";
+}
+
+function showSupport(){
+document.getElementById("content").innerHTML =
+"<h2>Support Page</h2>";
+}
+
+console.log("Supabase Connected");
+</script>
 
 </body>
 </html>
