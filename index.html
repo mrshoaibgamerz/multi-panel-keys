@@ -10,19 +10,32 @@
 body{
 font-family:Arial,sans-serif;
 padding:20px;
+background:#111827;
+color:white;
 }
 
 button{
 padding:10px 20px;
 margin:5px;
 cursor:pointer;
+border:none;
+border-radius:8px;
+background:#2563eb;
+color:white;
+}
+
+.card{
+background:#1f2937;
+padding:15px;
+margin-top:10px;
+border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>INFINITE STORE</h1>
+<h1>MULTI PANEL KEYS</h1>
 
 <p>Digital Key Store</p>
 
@@ -32,9 +45,47 @@ cursor:pointer;
 <div id="content"></div>
 
 <script>
-const supabaseUrl = "https://aytgkjahrqprtcedcavl.supabase.co";
 
-const supabaseKey = "sb_publishable_jcBP1v7sUcCGIWJgQ433qA__R1otIa0";
+function showProducts() {
+
+document.getElementById("content").innerHTML = `
+
+<div class="card">
+<h3>BGMI 325 UC</h3>
+<p>₹399</p>
+</div>
+
+<div class="card">
+<h3>BGMI 660 UC</h3>
+<p>₹799</p>
+</div>
+
+<div class="card">
+<h3>BGMI 1800 UC</h3>
+<p>₹1999</p>
+</div>
+
+`;
+
+}
+
+function showSupport() {
+
+document.getElementById("content").innerHTML = `
+
+<div class="card">
+<h3>Support</h3>
+<p>Telegram: @mr_shoaib_gamer</p>
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>const supabaseKey = "sb_publishable_jcBP1v7sUcCGIWJgQ433qA__R1otIa0";
 const supabase = window.supabase.createClient(
 supabaseUrl,
 supabaseKey
