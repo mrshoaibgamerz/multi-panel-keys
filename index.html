@@ -30,6 +30,13 @@ padding:15px;
 margin-top:10px;
 border-radius:10px;
 }
+
+img{
+width:100%;
+max-width:300px;
+border-radius:10px;
+margin-bottom:10px;
+}
 </style>
 </head>
 
@@ -46,41 +53,72 @@ border-radius:10px;
 
 <script>
 
-function showProducts() {
+const SUPABASE_URL =
+"https://aytgkjahrqprtcedcavl.supabase.co";
 
-document.getElementById("content").innerHTML = `
+const SUPABASE_KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF5dGdramFocnFwcnRjZWRjYXZsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzNjEwMzEsImV4cCI6MjA5NjkzNzAzMX0.6UjwIAp4kVasiHlyb0Ziwm3S7H0Z00iuFXVdF0RE-II";
 
+const supabase =
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+async function showProducts(){
+
+document.getElementById("content").innerHTML =
+"<p>Loading Products...</p>";
+
+const { data, error } = await supabase
+.from("products")
+.select("*")
+.eq("is_active", true);
+
+if(error){
+document.getElementById("content").innerHTML =
+"<p>Error Loading Products</p>";
+return;
+}
+
+let html = "";
+
+data.forEach(product => {
+
+html += `
 <div class="card">
-<h3>BGMI 325 UC</h3>
-<p>₹399</p>
-</div>
 
-<div class="card">
-<h3>BGMI 660 UC</h3>
-<p>₹799</p>
-</div>
+${product.image_url ?
+`<img src="${product.image_url}">`
+: ""}
 
-<div class="card">
-<h3>BGMI 1800 UC</h3>
-<p>₹1999</p>
-</div>
+<h3>${product.name}</h3>
 
+<p>${product.description || ""}</p>
+
+<h2>₹${product.price || 0}</h2>
+
+</div>
 `;
+
+});
+
+document.getElementById("content").innerHTML = html;
 
 }
 
-function showSupport() {
+function showSupport(){
 
 document.getElementById("content").innerHTML = `
-
 <div class="card">
 <h3>Support</h3>
 <p>Telegram: @mr_shoaib_gamer</p>
 </div>
-
 `;
 
 }
+
+showProducts();
 
 </script>
 
