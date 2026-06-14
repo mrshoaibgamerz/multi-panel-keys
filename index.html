@@ -41,11 +41,34 @@ function showProducts(){
 document.getElementById("content").innerHTML =
 "<h2>Products Page</h2>";
 }
+async function showProducts() {
 
-function showSupport(){
+const { data, error } = await supabase
+.from('products')
+.select('*');
+
+if(error){
 document.getElementById("content").innerHTML =
-"<h2>Support Page</h2>";
+"<h2>Error Loading Products</h2>";
+return;
 }
+
+let html = "<h2>Products</h2>";
+
+data.forEach(product => {
+html += `
+<div style="border:1px solid #ccc;padding:10px;margin:10px 0;">
+<h3>${product.name}</h3>
+<p>Price: ₹${product.price}</p>
+<p>${product.description || ""}</p>
+</div>
+`;
+});
+
+document.getElementById("content").innerHTML = html;
+}
+
+
 alert("Script Loaded");
 console.log("Supabase Connected");
 </script>
