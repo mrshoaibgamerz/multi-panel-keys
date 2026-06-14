@@ -73,7 +73,6 @@ document.getElementById("content").innerHTML =
 const { data, error } = await supabase
 .from("products")
 .select("*")
-.eq("is_active", true);
 
 if(error){
 document.getElementById("content").innerHTML =
