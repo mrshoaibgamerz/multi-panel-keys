@@ -35,7 +35,10 @@ cursor:pointer;
 const supabaseUrl = "https://aytgkjahrqprtcedcavl.supabase.co";
 
 const supabaseKey = "sb_publishable_jcBP1v7sUcCGIWJgQ433qA__R1otIa0";
-
+const supabase = window.supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
 
 
 async function showProducts() {
