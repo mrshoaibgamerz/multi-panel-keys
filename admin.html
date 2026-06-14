@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#111827;
+color:white;
+padding:20px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:8px;
+border:none;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#2563eb;
+color:white;
+font-size:16px;
+}
+
+.card{
+background:#1f2937;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Multi Panel Keys</h1>
+
+<h2>Admin Login</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div class="card" id="dashboard">
+
+<h2>Admin Dashboard</h2>
+
+<p>Products</p>
+<p>Plans</p>
+<p>Orders</p>
+<p>Keys</p>
+<p>Support</p>
+<p>Settings</p>
+
+</div>
+
+<script>
+
+function login(){
+
+const username =
+document.getElementById("username").value;
+
+const password =
+document.getElementById("password").value;
+
+if(
+username === "admin" &&
+password === "SAFE999"
+){
+document.getElementById("dashboard")
+.style.display = "block";
+
+alert("Login Success");
+}
+else{
+alert("Wrong Login");
+}
+
+}
+
+</script>
+
+</body>
+</html>
