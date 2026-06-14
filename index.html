@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>INFINITE STORE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+padding:20px;
+background:#111827;
+color:white;
+}
+
+button{
+padding:10px 20px;
+margin:5px;
+cursor:pointer;
+border:none;
+border-radius:8px;
+background:#2563eb;
+color:white;
+}
+
+.card{
+background:#1f2937;
+padding:15px;
+margin-top:10px;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>MULTI PANEL KEYS</h1>
+
+<p>Digital Key Store</p>
+
+<button onclick="showProducts()">Products</button>
+<button onclick="showSupport()">Support</button>
+
+<div id="content"></div>
+
+<script>
+
+function showProducts() {
+
+document.getElementById("content").innerHTML = `
+
+<div class="card">
+<h3>BGMI 325 UC</h3>
+<p>₹399</p>
+</div>
+
+<div class="card">
+<h3>BGMI 660 UC</h3>
+<p>₹799</p>
+</div>
+
+<div class="card">
+<h3>BGMI 1800 UC</h3>
+<p>₹1999</p>
+</div>
+
+`;
+
+}
+
+function showSupport() {
+
+document.getElementById("content").innerHTML = `
+
+<div class="card">
+<h3>Support</h3>
+<p>Telegram: @mr_shoaib_gamer</p>
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
